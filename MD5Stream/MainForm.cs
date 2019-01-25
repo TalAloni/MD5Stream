@@ -123,11 +123,6 @@ namespace MD5Stream
                 {
                     fileList.RemoveAt(index);
                     index--;
-                    if (index == fileList.Count - 1)
-                    {
-                        // this is the last file, we must update the status bar
-                        UpdateStatusBar(index + 1, fileList.Count, bytesHashed, startDT);
-                    }
                     continue;
                 }
                 MD5StreamStatus status;
@@ -163,6 +158,7 @@ namespace MD5Stream
                     AddFileToInaccessible(path);
                     continue;
                 }
+
                 switch(status)
                 {
                     case MD5StreamStatus.Correct:
@@ -199,6 +195,8 @@ namespace MD5Stream
                     return;
                 }
             }
+            // If the last file was inaccessible we did not yet updated the status bar
+            UpdateStatusBar(fileList.Count, fileList.Count, bytesHashed, startDT);
         }
 
         private void AddFileToCorrect(string path)
