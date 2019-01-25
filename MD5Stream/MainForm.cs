@@ -116,9 +116,21 @@ namespace MD5Stream
             {
                 string path = fileList[index];
                 
-                FileInfo fileInfo = new FileInfo(path);
-                bool isSystemFile = (fileInfo.Attributes & FileAttributes.System) > 0;
-                bool isReadOnly = fileInfo.IsReadOnly;
+                FileInfo fileInfo;
+                bool isSystemFile;
+                bool isReadOnly;
+                try
+                {
+                    fileInfo = new FileInfo(path);
+                    isSystemFile = (fileInfo.Attributes & FileAttributes.System) > 0;
+                    isReadOnly = fileInfo.IsReadOnly;
+                }
+                catch (IOException)
+                {
+                    AddFileToInaccessible(path);
+                    continue;
+                }
+
                 if (isSystemFile)
                 {
                     fileList.RemoveAt(index);
