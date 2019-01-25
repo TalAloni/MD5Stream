@@ -1,0 +1,2 @@
+Hard Disk Icon courtesy of Ionicons (http://ionicons.com/)
+License: MIT License (http://opensource.org/licenses/MIT)
