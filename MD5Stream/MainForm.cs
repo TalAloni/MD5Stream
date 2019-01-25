@@ -60,6 +60,7 @@ namespace MD5Stream
             tabUpdated.Text = String.Format("Updated ({0})", m_updatedCount);
             tabInvalid.Text = String.Format("Invalid ({0})", m_invalidCount);
             tabInaccessible.Text = String.Format("Inaccessible ({0})", m_inaccessibleCount);
+            statusBarLabelProgress.Text = "Building file list...";
 
             Thread thread1 = new Thread
             (delegate()
