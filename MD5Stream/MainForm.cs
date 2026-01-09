@@ -355,6 +355,13 @@ namespace MD5Stream
                     fileList.AddRange(Directory.GetFiles(currentPath));
                     directories.AddRange(Directory.GetDirectories(currentPath));
                     directories.RemoveAt(0);
+
+                    if (new DirectoryInfo(path).Parent == null) // Root directory
+                    {
+                        directories.Remove(Path.Combine(path, "System Volume Information"));
+                        directories.Remove(Path.Combine(path, "RECYCLER"));
+                        directories.Remove(Path.Combine(path, "$RECYCLE.BIN"));
+                    }
                 }
                 return fileList;
             }
