@@ -6,7 +6,7 @@
     <AssemblyName>MD5Stream</AssemblyName>
     <AssemblyTitle>MD5Stream</AssemblyTitle>
     <Product>MD5Stream</Product>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <RootNamespace>MD5Stream</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <Configurations>Debug;Release</Configurations>
